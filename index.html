@@ -186,32 +186,70 @@
 				</ul>
 			</div>
 			<h1 id="webretrotitle">webretro</h1>
-			<div id="ffd">
-				<div id="ffdcontent">
-					<div id="coreselectarea">
-						<h3>Select a Core</h3>
-						<div class="coreorderrow">
-							<label for="coreorder">Sort by:</label>
-							<select id="coreorder">
-								<option value="system" selected>System</option>
-								<option value="corename">Core name</option>
-								<option value="libraryname">Library name</option>
-							</select>
-						</div>
-						<ul class="corelistul">
-							<li><a href="?core=autodetect" class="greyer">AutoDetect (Slower to load)</a></li>
-							<span id="corelist"></span>
-						</ul>
-					</div>
-					<div id="uploadarea">
-						<h2><span id="systemname"></span> Emulator</h2>
-						<input type="button" id="upload" value="Choose ROM File" class="uploadbutton">
-						<br>
-						<img id="googledriveupload" class="uploadbutton uploadimage" title="Google Drive Upload" src="assets/icons/googledrive.png">
-						<img id="dropboxupload" class="uploadbutton uploadimage" title="Dropbox Upload" src="assets/icons/dropbox.png">
-						<img id="onedriveupload" class="uploadbutton uploadimage" title="OneDrive Upload" src="assets/icons/onedrive.png">
-					</div>
-				</div>
+<div id="ffdcontent">
+    
+    <!-- NEW GAME LIBRARY SECTION -->
+    <div id="game-library" style="display:block;">
+        <h2 style="text-align:center; margin:20px;">My Game Library</h2>
+        <div class="game-grid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap:20px; padding:20px; max-width:1200px; margin:0 auto;">
+            
+            <!-- GBA Game -->
+            <div class="game-card" onclick="loadGame('mgba', 'roms/pokemon-emerald.zip')" 
+                 style="background:#2a2a2a; padding:15px; border-radius:8px; cursor:pointer; text-align:center; transition:transform 0.2s;">
+                <h3 style="margin:10px 0 5px; color:#fff;">Pokémon Emerald</h3>
+                <p style="color:#ccc; margin:0;">Game Boy Advance</p>
+            </div>
+            
+            <!-- NES Game -->
+            <div class="game-card" onclick="loadGame('nestopia', 'roms/super-mario.zip')" 
+                 style="background:#2a2a2a; padding:15px; border-radius:8px; cursor:pointer; text-align:center; transition:transform 0.2s;">
+                <h3 style="margin:10px 0 5px; color:#fff;">Super Mario Bros</h3>
+                <p style="color:#ccc; margin:0;">NES</p>
+            </div>
+            
+            <!-- SNES Game -->
+            <div class="game-card" onclick="loadGame('snes9x', 'roms/zelda-lttp.zip')" 
+                 style="background:#2a2a2a; padding:15px; border-radius:8px; cursor:pointer; text-align:center; transition:transform 0.2s;">
+                <h3 style="margin:10px 0 5px; color:#fff;">Zelda: A Link to the Past</h3>
+                <p style="color:#ccc; margin:0;">SNES</p>
+            </div>
+            
+            <!-- Add more games by copying the above block and changing:
+                 - Core name (mgba, nestopia, snes9x, etc.)
+                 - ROM path (roms/your-game.zip)
+                 - Game title and system text
+            -->
+            
+        </div>
+    </div>
+    
+    <!-- ORIGINAL SECTIONS (HIDDEN) -->
+    <div id="coreselectarea" style="display:none;">
+        <h3>Select a Core</h3>
+        <div class="coreorderrow">
+            <label for="coreorder">Sort by:</label>
+            <select id="coreorder">
+                <option value="system" selected>System</option>
+                <option value="corename">Core name</option>
+                <option value="libraryname">Library name</option>
+            </select>
+        </div>
+        <ul class="corelistul">
+            <li><a href="?core=autodetect" class="greyer">AutoDetect (Slower to load)</a></li>
+            <span id="corelist"></span>
+        </ul>
+    </div>
+    <div id="uploadarea" style="display:none;">
+        <h2><span id="systemname"></span> Emulator</h2>
+        <input type="button" id="upload" value="Choose ROM File" class="uploadbutton">
+        <br>
+        <img id="googledriveupload" class="uploadbutton uploadimage" title="Google Drive Upload" src="assets/icons/googledrive.png">
+        <img id="dropboxupload" class="uploadbutton uploadimage" title="Dropbox Upload" src="assets/icons/dropbox.png">
+        <img id="onedriveupload" class="uploadbutton uploadimage" title="OneDrive Upload" src="assets/icons/onedrive.png">
+    </div>
+    
+</div>
+
 				<div class="source">
 					<a href="https://github.com/BinBashBanana/webretro" target="_blank">GitHub</a>
 					<a href="https://github.com/libretro" target="_blank">Libretro</a>
